@@ -1,0 +1,1780 @@
+@charset "UTF-8";
+
+/* =================================================================*/
+/*  共通                                                            */
+/* =================================================================*/
+body {
+  color: #ffffff;
+  background-color: #ffffff;
+  /*  "Droid Serif", YuGothic, "游ゴシック", sans-serif;  */
+  font-family: 'メイリオ', 'Meiryo', sans-serif;
+}
+
+.animated {
+  /* アニメーションで表示させるため最初は非表示 */
+  opacity: 0;
+}
+
+
+/*  TOPメニューコンテンツ  */
+.container-fluid {
+  width: 100%;
+  /*height: 10vh; */
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+/* TOP位置設定            */  
+.top {
+  /* 子要素でposition:absoluteを使うため必要 */
+  position: relative;
+}
+
+.top__privacy {
+  width: 100%;
+  /*height: 30vh; */
+  overflow: hidden;
+}
+
+/* Navi フォントサイズ(左)  */
+.navi-left-font-size {
+  font-size: 40px;
+  color: #000000;
+}
+
+/* Navi フォントサイズ(右)  */
+.navi-light-font-size ul li a:link {
+  font-size: 16px;
+  color: #000000;
+}
+
+/* Navi フォントサイズ(右)  リンク */
+.navi-light-font-size ul li a:link {
+  font-size: 16px;
+  color: #000000;
+}
+
+/* Navi フォントサイズ(右)  押下後 */
+.navi-light-font-size ul li a:visited {
+  font-size: 16px;
+  color: #000000;
+}
+
+/* Navi フォントサイズ(右)  マウスオーバー */
+.navi-light-font-size ul li a:hover {
+  opacity: 0.7;
+  text-decoration: none;
+}
+
+.top__bg {
+  filter: saturate(200%);
+}
+
+.top__bg {
+  /* .topと同じ左上位置に置く */
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  /* 背景画像を画面いっぱいに置く */
+  background-color: #383c3c;
+  background-image: none;
+  background-size: cover;
+  background-position: center;
+}
+
+.top__text-box {
+  /* 上下中央に置く */
+  position: relative;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  text-align: center;
+  width: 100%;
+
+  font-weight: 100;
+  color: #ffffff;
+  background-color: #383c3c;
+}
+
+/*  スライドショー   */
+#slideshow img {
+  position: absolute;
+  top: 0;
+  left:0;
+  z-index: 8;
+  opacity: 0.0;
+}
+
+#slideshow img.active {
+  z-index: 10;
+  opacity: 1.0;
+}
+
+#slideshow img.last-active {
+  z-index: 9;
+}
+
+/* =================================================================*/
+/*  374以下の場合は適用される                              */
+/* =================================================================*/
+@media screen and ( max-width:374px){
+.navbar-brand img{
+    width:150px;
+    height: 60px;
+  }
+  
+  .navbar-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+  
+  .top,
+  .top__bg {
+  /* 画面いっぱいに広げる */
+    width: 100%;
+    height: 10vh;
+    overflow: hidden;
+    background-color: #000000;
+  }
+  
+  .top__catchphrase {
+    font-size: 1.125rem;
+  }
+  
+  /*  スライドショー    */
+  #slideshow{
+    /*position: relative; */
+    width: 0%;
+    height: 5vh;
+    background-color: #ffffff;
+    /*overflow: hidden;*/
+  }
+
+  #slideshow img {
+    position: absolute;
+    top: 0;
+    left:0;
+    z-index: 8;
+    opacity: 0.0;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width:  0%;     /* 画像の横幅に合わせて記述 */
+    height: 0vh;     /* 画像の高さに合わせて記述 */
+　}
+　
+  #slideshow img.active {
+    z-index: 10;
+    opacity: 1.0;
+  }
+
+  #slideshow img.last-active {
+    z-index: 9;
+  }
+
+  .top_image{
+    margin-top: 40px;
+    width: 100%;
+    height: 100%;
+    argin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:center;
+    color: #ffffff;
+    justify-content: center;
+  }
+  
+  /*  画像・文章フィールド  */
+  .metagri_field,
+  .product_field,
+  .challenge_field,
+  .buy_field{
+    display:flex;
+    /*padding: 10px;  */
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:center;
+    flex-direction: column;
+    color: #ffffff;
+    justify-content: center;
+  }
+
+  /*  画像・文章フィールド  */
+  .metagri_field2,
+  .product_field2,
+  .challenge_field2,
+  .buy_field2{
+    display:flex;
+    /*padding: 10px;  */
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:center;
+    flex-direction: column-reverse;
+    color: #ffffff;
+    justify-content: center;
+  }
+
+  /*  フィールドセル   */
+  .metagri_field_cell,
+  .product_field_cell,
+  .challenge_field_cell,
+  .buy_field_cell {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+  }
+
+  .metagri_field_cell img,
+  .product_field_cell img,
+  .challenge_field_cell img,
+  .buy_field_cell img{
+      width: 300px;
+      height: 200px;
+      overflow: hidden;
+  }
+
+
+  /*  文章フィールド   */
+  .metagri_concept_text,
+  .product_concept_text,
+  .challenge_concept_text,
+  .buy_concept_text{
+      color: #000000;
+      text-align:left;
+      margin: 20px;
+  }
+
+  /*  文章タイトル  */
+  .metagri_about_title,
+  .product_about_title,
+  .challenge_about_title,
+  .buy_about_title{
+    font-size: 14px;
+  }
+
+  /*  文章テキスト  */
+  .metagri_about_text,
+  .product_about_text,
+  .challenge_about_text,
+  .buy_about_text{
+    font-size: 12px;
+  }
+
+  #button1,
+  #button2,
+  #button3,
+  #button4{
+    border: solid 0px;
+    border-radius: 1px;
+    background-color: #dcdcdc;
+    padding: 20px 60px 20px 60px;
+  }
+
+  /* metagri.htmlファイル   */
+  /* producter.htmlファイル */
+  .top_menu{
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .metagri_file_title{
+    margin-left: 30px;
+    color: #000000;
+    font-size: 24px;
+  }
+
+  .buy_to_nft_flow img{
+    margin-top: 10px;
+    width: 250px;
+    height: 78px;
+  }
+
+
+  .showcase--leftpic .showcase__thumbnails {
+    text-align: left;
+  }
+  .showcase--rightpic .showcase__thumbnails {
+    text-align: right;
+  }
+
+  .showcase--rightpic .showcase__kind-name {
+    text-align: right;
+  }
+
+  .showcase__details {
+    max-width: 320px;
+  }
+  .showcase--leftpic .showcase__details {
+    margin: 0 auto 0 0;
+  }
+  .showcase--rightpic .showcase__details {
+    margin: 0 0 0 auto;
+  }
+
+  .footer_border{
+    margin-top: 20px;
+    border: solid;
+    border-color: #696969;
+  }
+  
+  .footer {
+    display:flex;
+    color: #000000;
+    padding: 50px 0;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    background-color: #ffffff;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    flex-direction: column;
+  }
+  
+  .footer_container{
+    display:flex;
+    justify-content: center;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
+    flex-direction: column;
+    /*justify-content: space-between;  */
+    color: #000000;
+  }
+  
+  /*  製品(個別)    */
+  .footer_cell {
+    color: #000000;
+    padding: 0 10px;
+    text-decoration: none;
+    /*margin-left: auto; /* 中央寄せにするため */
+    /*margin-right: auto; /* 中央寄せにするため */
+    text-align: center;
+    /*margin-right: 10px;  */
+  }
+  
+  /* SNSロゴ      */
+  .footer_cell img{
+     width: 50px;
+     height: 50px;
+  }
+
+  /* ヘッダの各種リンク  */
+  .nav-item a,
+  .top_menu a {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+  }
+
+  .nav-item a::after,
+  .top_menu a::after{
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #333;
+    transform: scale(0, 1);
+    transform-origin: center top;
+    transition: transform .3s;
+  }
+
+  .nav-item a:hover::after,
+  .top_menu a:hover::after{
+    transform: scale(1, 1);
+  }
+
+  /* -------------------------------------------- */
+  /*  Footer関連                                  */
+  /* ---------------------------------------------*/
+  .footer_cell a {
+    color: #000;
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+  }
+
+  .footer_cell a::after {
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #333;
+    transform: scale(0, 1);
+    transform-origin: center top;
+    transition: transform .3s;
+  }
+
+  .footer_cell a:hover::after {
+    transform: scale(1, 1);
+  }
+  
+    
+  .footer ul li {
+    color: #000000;
+    padding: 0 4px;
+    display: inline;
+    text-decoration: none;
+  }
+  
+  .footer ul li a:link {
+    color: #000000;
+  }
+  
+  .footer ul li a:visited {
+    color: #000000;
+  }
+  
+  .footer ul li a:hover {
+    opacity: 0.7;
+    text-decoration: none;
+  }
+
+  .footer_copy_right {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align: center;
+    color: #000;
+  }
+}
+
+
+/* =================================================================*/
+/*  375px以上640以下の場合は適用される                              */
+/* =================================================================*/
+@media screen and (min-width: 375px) and ( max-width:640px){
+.navbar-brand img{
+    width:192px;
+    height: 56px;
+  }
+  
+  .navbar-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+  
+  .top,
+  .top__bg {
+  /* 画面いっぱいに広げる */
+    width: 100%;
+    /*height: 13vh;*/
+    overflow: hidden;
+    background-color: #ffffff;
+  }
+  
+  .top__catchphrase {
+    font-size: 1.125rem;
+  }
+  
+  /*  スライドショー    */
+  #slideshow{
+    /*position: relative; */
+    width: 0%;
+    height: 10vh;
+    background-color: #ffffff;
+    /*overflow: hidden;*/
+  }
+
+  #slideshow img {
+    position: absolute;
+    top: 0;
+    left:0;
+    z-index: 8;
+    opacity: 0.0;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width:  0%;     /* 画像の横幅に合わせて記述 */
+    height: 0vh;     /* 画像の高さに合わせて記述 */
+　}
+　
+  #slideshow img.active {
+    z-index: 10;
+    opacity: 1.0;
+  }
+
+  #slideshow img.last-active {
+    z-index: 9;
+  }
+
+  .top_image{
+    margin-top: 40px;
+    width: 100%;
+    height: 100%;
+    argin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:center;
+    color: #ffffff;
+    justify-content: center;
+  }
+  
+  /*  画像・文章フィールド  */
+  .metagri_field,
+  .product_field,
+  .challenge_field,
+  .buy_field{
+    display:flex;
+    /*padding: 10px;  */
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:center;
+    flex-direction: column;
+    color: #ffffff;
+    justify-content: center;
+  }
+
+  /*  画像・文章フィールド  */
+  .metagri_field2,
+  .product_field2,
+  .challenge_field2,
+  .buy_field2{
+    display:flex;
+    /*padding: 10px;  */
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:center;
+    flex-direction: column-reverse;
+    color: #ffffff;
+    justify-content: center;
+  }
+
+  /*  フィールドセル   */
+  .metagri_field_cell,
+  .product_field_cell,
+  .challenge_field_cell,
+  .buy_field_cell {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+  }
+
+  .metagri_field_cell img,
+  .product_field_cell img,
+  .challenge_field_cell img,
+  .buy_field_cell img{
+      width: 400px;
+      height: 267px;
+      overflow: hidden;
+  }
+
+
+  /*  文章フィールド   */
+  .metagri_concept_text,
+  .product_concept_text,
+  .challenge_concept_text,
+  .buy_concept_text{
+      color: #000000;
+      text-align:left;
+      margin: 60px;
+  }
+
+  /*  文章タイトル  */
+  .metagri_about_title,
+  .product_about_title,
+  .challenge_about_title,
+  .buy_about_title{
+    font-size: 16px;
+  }
+
+  /*  文章テキスト  */
+  .metagri_about_text,
+  .product_about_text,
+  .challenge_about_text,
+  .buy_about_text{
+    font-size: 12px;
+  }
+
+  #button1,
+  #button2,
+  #button3,
+  #button4{
+    border: solid 0px;
+    border-radius: 1px;
+    background-color: #dcdcdc;
+    padding: 20px 60px 20px 60px;
+  }
+
+  /* metagri.htmlファイル   */
+  /* producter.htmlファイル */
+  .top_menu{
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .metagri_file_title{
+    margin-left: 30px;
+    color: #000000;
+    font-size: 24px;
+  }
+
+  .buy_to_nft_flow img{
+    margin-top: 10px;
+    width: 300px;
+    height: 94px;
+  }
+
+
+  .showcase--leftpic .showcase__thumbnails {
+    text-align: left;
+  }
+  .showcase--rightpic .showcase__thumbnails {
+    text-align: right;
+  }
+
+  .showcase--rightpic .showcase__kind-name {
+    text-align: right;
+  }
+
+  .showcase__details {
+    max-width: 320px;
+  }
+  .showcase--leftpic .showcase__details {
+    margin: 0 auto 0 0;
+  }
+  .showcase--rightpic .showcase__details {
+    margin: 0 0 0 auto;
+  }
+
+  .footer_border{
+    margin-top: 20px;
+    border: solid;
+    border-color: #696969;
+  }
+  
+  .footer {
+    display:flex;
+    color: #000000;
+    padding: 50px 0;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    background-color: #ffffff;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    flex-direction: column;
+  }
+  
+  .footer_container{
+    display:flex;
+    justify-content: center;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
+    flex-direction: column;
+    /*justify-content: space-between;  */
+    color: #000000;
+  }
+  
+  /*  製品(個別)    */
+  .footer_cell {
+    color: #000000;
+    padding: 0 10px;
+    text-decoration: none;
+    /*margin-left: auto; /* 中央寄せにするため */
+    /*margin-right: auto; /* 中央寄せにするため */
+    text-align: center;
+    /*margin-right: 10px;  */
+  }
+  
+  /* SNSロゴ      */
+  .footer_cell img{
+     width: 50px;
+     height: 50px;
+  }
+
+  /* ヘッダの各種リンク  */
+  .nav-item a,
+  .top_menu a {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+  }
+
+  .nav-item a::after,
+  .top_menu a::after{
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #333;
+    transform: scale(0, 1);
+    transform-origin: center top;
+    transition: transform .3s;
+  }
+
+  .nav-item a:hover::after,
+  .top_menu a:hover::after{
+    transform: scale(1, 1);
+  }
+
+  /* -------------------------------------------- */
+  /*  Footer関連                                  */
+  /* ---------------------------------------------*/
+  .footer_cell a {
+    color: #000;
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+  }
+
+  .footer_cell a::after {
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #333;
+    transform: scale(0, 1);
+    transform-origin: center top;
+    transition: transform .3s;
+  }
+
+  .footer_cell a:hover::after {
+    transform: scale(1, 1);
+  }
+  
+    
+  .footer ul li {
+    color: #000000;
+    padding: 0 4px;
+    display: inline;
+    text-decoration: none;
+  }
+  
+  .footer ul li a:link {
+    color: #000000;
+  }
+  
+  .footer ul li a:visited {
+    color: #000000;
+  }
+  
+  .footer ul li a:hover {
+    opacity: 0.7;
+    text-decoration: none;
+  }
+
+  .footer_copy_right {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align: center;
+    color: #000;
+  }
+}
+
+/* =================================================================*/
+/*  641px以上768以下の場合は適用される                              */
+/*  <iPad等>                                                        */
+/* =================================================================*/
+@media screen and (min-width: 641px) and ( max-width:768px){
+.navbar-brand img{
+    width:192px;
+    height: 56px;
+  }
+  
+  .navbar-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+  .top,
+  .top__bg {
+  /* 画面いっぱいに広げる */
+    width: 100%;
+    /*height: 13vh;*/
+    overflow: hidden;
+    background-color: #ffffff;
+  }
+  
+  .top__catchphrase {
+    font-size: 1.125rem;
+  }
+  
+  /*  スライドショー    */
+  #slideshow{
+    /*position: relative; */
+    width: 100%;
+    height: 50vh;
+    background-color: #ffffff;
+    /*overflow: hidden;*/
+  }
+
+  #slideshow img {
+    position: absolute;
+    top: 0;
+    left:0;
+    z-index: 8;
+    opacity: 0.0;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width:  900px;    /* 画像の横幅に合わせて記述 */
+    height: 599px;     /* 画像の高さに合わせて記述 */
+　}
+　
+  #slideshow img.active {
+    z-index: 10;
+    opacity: 1.0;
+  }
+
+  #slideshow img.last-active {
+    z-index: 9;
+  }
+
+  .top_image{
+    margin-top: 40px;
+    width: 100%;
+    height: 100%;
+    argin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:center;
+    color: #ffffff;
+    justify-content: center;
+  }
+  
+  /*  画像・文章フィールド  */
+  .metagri_field,
+  .product_field,
+  .challenge_field,
+  .buy_field{
+    display:flex;
+    /*padding: 10px;  */
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:center;
+    flex-direction: column;
+    color: #ffffff;
+    justify-content: center;
+  }
+
+  /*  画像・文章フィールド  */
+  .metagri_field2,
+  .product_field2,
+  .challenge_field2,
+  .buy_field2{
+    display:flex;
+    /*padding: 10px;  */
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:center;
+    flex-direction: column-reverse;
+    color: #ffffff;
+    justify-content: center;
+  }
+
+  /*  フィールドセル   */
+  .metagri_field_cell,
+  .product_field_cell,
+  .challenge_field_cell,
+  .buy_field_cell {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+  }
+
+
+  /*  文章フィールド   */
+  .metagri_concept_text,
+  .product_concept_text,
+  .challenge_concept_text,
+  .buy_concept_text{
+      color: #000000;
+      text-align:left;
+      margin: 60px;
+  }
+
+  /*  文章タイトル  */
+  .metagri_about_title,
+  .product_about_title,
+  .challenge_about_title,
+  .buy_about_title{
+    font-size: 24px;
+  }
+
+  /*  文章テキスト  */
+  .metagri_about_text,
+  .product_about_text,
+  .challenge_about_text,
+  .buy_about_text{
+    font-size: 16px;
+  }
+
+  #button1,
+  #button2,
+  #button3,
+  #button4{
+    border: solid 0px;
+    border-radius: 1px;
+    background-color: #dcdcdc;
+    padding: 20px 60px 20px 60px;
+  }
+
+  /* metagri.htmlファイル   */
+  /* producter.htmlファイル */
+  .top_menu{
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .metagri_file_title{
+    margin-left: 30px;
+    color: #000000;
+    font-size: 24px;
+  }
+
+  .buy_to_nft_flow img{
+    margin-top: 10px;
+    width: 500px;
+    height: 156px;
+  }
+
+  .showcase--leftpic .showcase__thumbnails {
+    text-align: left;
+  }
+  .showcase--rightpic .showcase__thumbnails {
+    text-align: right;
+  }
+
+  .showcase--rightpic .showcase__kind-name {
+    text-align: right;
+  }
+
+  .showcase__details {
+    max-width: 320px;
+  }
+  .showcase--leftpic .showcase__details {
+    margin: 0 auto 0 0;
+  }
+  .showcase--rightpic .showcase__details {
+    margin: 0 0 0 auto;
+  }
+
+  .footer_border{
+    margin-top: 20px;
+    border: solid;
+    border-color: #696969;
+  }
+  
+  .footer {
+    display:flex;
+    color: #000000;
+    padding: 50px 0;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    background-color: #ffffff;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    flex-direction: column;
+  }
+  
+  .footer_container{
+    display:flex;
+    justify-content: center;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
+    flex-direction: column;
+    /*justify-content: space-between;  */
+    color: #000000;
+  }
+  
+  /*  製品(個別)    */
+  .footer_cell {
+    color: #000000;
+    padding: 0 10px;
+    text-decoration: none;
+    /*margin-left: auto; /* 中央寄せにするため */
+    /*margin-right: auto; /* 中央寄せにするため */
+    text-align: center;
+    /*margin-right: 10px;  */
+  }
+  
+  /* SNSロゴ      */
+  .footer_cell img{
+     width: 50px;
+     height: 50px;
+  }
+
+  /* ヘッダの各種リンク  */
+  .nav-item a,
+  .top_menu a {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+  }
+
+  .nav-item a::after,
+  .top_menu a::after{
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #333;
+    transform: scale(0, 1);
+    transform-origin: center top;
+    transition: transform .3s;
+  }
+
+  .nav-item a:hover::after,
+  .top_menu a:hover::after{
+    transform: scale(1, 1);
+  }
+
+  /* -------------------------------------------- */
+  /*  Footer関連                                  */
+  /* ---------------------------------------------*/
+  .footer_cell a {
+    color: #000;
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+  }
+
+  .footer_cell a::after {
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #333;
+    transform: scale(0, 1);
+    transform-origin: center top;
+    transition: transform .3s;
+  }
+
+  .footer_cell a:hover::after {
+    transform: scale(1, 1);
+  }
+      
+  .footer ul li {
+    color: #000000;
+    padding: 0 4px;
+    display: inline;
+    text-decoration: none;
+  }
+  
+  .footer ul li a:link {
+    color: #000000;
+  }
+  
+  .footer ul li a:visited {
+    color: #000000;
+  }
+  
+  .footer ul li a:hover {
+    opacity: 0.7;
+    text-decoration: none;
+  }
+
+  .footer_copy_right {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align: center;
+    color: #000;
+  }
+}
+
+/* =================================================================*/
+/*  769px以上1024px以下の場合は適用される                           */
+/*  <PCやipad横向き>                                                */
+/* =================================================================*/
+@media screen and (min-width: 769px) and (max-width: 1024px){
+.navbar-brand img{
+    width:192px;
+    height: 56px;
+  }
+  
+  .navbar-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+  
+  .top,
+  .top__bg {
+  /* 画面いっぱいに広げる */
+    width: 100%;
+    /*height: 13vh;*/
+    overflow: hidden;
+    background-color: #ffffff;
+  }
+  
+  .top__catchphrase {
+    font-size: 1.125rem;
+  }
+  
+  /*  スライドショー    */
+  #slideshow{
+    /*position: relative; */
+    width: 100%;
+    height: 50vh;
+    background-color: #ffffff;
+    /*overflow: hidden;*/
+  }
+
+  #slideshow img {
+    position: absolute;
+    top: 0;
+    left:0;
+    z-index: 8;
+    opacity: 0.0;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width:  900px;    /* 画像の横幅に合わせて記述 */
+    height: 599px;     /* 画像の高さに合わせて記述 */
+　}
+　
+  #slideshow img.active {
+    z-index: 10;
+    opacity: 1.0;
+  }
+
+  #slideshow img.last-active {
+    z-index: 9;
+  }
+
+  .top_image{
+    margin-top: 40px;
+    width: 100%;
+    height: 100%;
+    argin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:center;
+    color: #ffffff;
+    justify-content: center;
+  }
+  
+  /*  画像・文章フィールド  */
+  .metagri_field,
+  .product_field,
+  .challenge_field,
+  .buy_field{
+    display:flex;
+    /*padding: 10px;  */
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:center;
+    flex-direction: column;
+    color: #ffffff;
+    justify-content: center;
+  }
+
+  /*  画像・文章フィールド  */
+  .metagri_field2,
+  .product_field2,
+  .challenge_field2,
+  .buy_field2{
+    display:flex;
+    /*padding: 10px;  */
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:center;
+    flex-direction: column-reverse;
+    color: #ffffff;
+    justify-content: center;
+  }
+
+  /*  フィールドセル   */
+  .metagri_field_cell,
+  .product_field_cell,
+  .challenge_field_cell,
+  .buy_field_cell {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+  }
+
+
+  /*  文章フィールド   */
+  .metagri_concept_text,
+  .product_concept_text,
+  .challenge_concept_text,
+  .buy_concept_text{
+      color: #000000;
+      text-align:left;
+      margin: 60px;
+  }
+
+  /*  文章タイトル  */
+  .metagri_about_title,
+  .product_about_title,
+  .challenge_about_title,
+  .buy_about_title{
+    font-size: 24px;
+  }
+
+  /*  文章テキスト  */
+  .metagri_about_text,
+  .product_about_text,
+  .challenge_about_text,
+  .buy_about_text{
+    font-size: 16px;
+  }
+
+  #button1,
+  #button2,
+  #button3,
+  #button4{
+    border: solid 0px;
+    border-radius: 1px;
+    background-color: #dcdcdc;
+    padding: 20px 60px 20px 60px;
+  }
+
+  /* metagri.htmlファイル   */
+  /* producter.htmlファイル */
+  .top_menu{
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .metagri_file_title{
+    margin-left: 30px;
+    color: #000000;
+    font-size: 24px;
+  }
+
+  .buy_to_nft_flow img{
+    margin-top: 10px;
+    width: 500px;
+    height: 156px;
+  }
+
+  .showcase--leftpic .showcase__thumbnails {
+    text-align: left;
+  }
+  .showcase--rightpic .showcase__thumbnails {
+    text-align: right;
+  }
+
+  .showcase--rightpic .showcase__kind-name {
+    text-align: right;
+  }
+
+  .showcase__details {
+    max-width: 320px;
+  }
+  .showcase--leftpic .showcase__details {
+    margin: 0 auto 0 0;
+  }
+  .showcase--rightpic .showcase__details {
+    margin: 0 0 0 auto;
+  }
+
+  .footer_border{
+    margin-top: 20px;
+    border: solid;
+    border-color: #696969;
+  }
+  
+  .footer {
+    display:flex;
+    color: #000000;
+    padding: 50px 0;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    background-color: #ffffff;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    flex-direction: column;
+  }
+  
+  .footer_container{
+    display:flex;
+    justify-content: center;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
+    flex-direction: column;
+    /*justify-content: space-between;  */
+    color: #000000;
+  }
+  
+  /*  製品(個別)    */
+  .footer_cell {
+    color: #000000;
+    padding: 0 10px;
+    text-decoration: none;
+    /*margin-left: auto; /* 中央寄せにするため */
+    /*margin-right: auto; /* 中央寄せにするため */
+    text-align: center;
+    /*margin-right: 10px;  */
+  }
+  
+  /* SNSロゴ      */
+  .footer_cell img{
+     width: 50px;
+     height: 50px;
+  }
+
+  /* ヘッダの各種リンク  */
+  .nav-item a,
+  .top_menu a {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+  }
+
+  .nav-item a::after,
+  .top_menu a::after{
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #333;
+    transform: scale(0, 1);
+    transform-origin: center top;
+    transition: transform .3s;
+  }
+
+  .nav-item a:hover::after,
+  .top_menu a:hover::after{
+    transform: scale(1, 1);
+  }
+
+  /* -------------------------------------------- */
+  /*  Footer関連                                  */
+  /* ---------------------------------------------*/
+  .footer_cell a {
+    color: #000;
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+  }
+
+  .footer_cell a::after {
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #333;
+    transform: scale(0, 1);
+    transform-origin: center top;
+    transition: transform .3s;
+  }
+
+  .footer_cell a:hover::after {
+    transform: scale(1, 1);
+  }
+  
+    
+  .footer ul li {
+    color: #000000;
+    padding: 0 4px;
+    display: inline;
+    text-decoration: none;
+  }
+  
+  .footer ul li a:link {
+    color: #000000;
+  }
+  
+  .footer ul li a:visited {
+    color: #000000;
+  }
+  
+  .footer ul li a:hover {
+    opacity: 0.7;
+    text-decoration: none;
+  }
+
+  .footer_copy_right {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align: center;
+    color: #000;
+  }
+}
+
+
+/* =================================================================*/
+/*  1025px以上の場合は適用される                                    */
+/* =================================================================*/
+@media screen and (min-width: 1025px){
+  .navbar-brand img{
+    width:192px;
+    height: 56px;
+  }
+  
+  .navbar-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+  
+  .top,
+  .top__bg {
+  /* 画面いっぱいに広げる */
+    width: 100%;
+    /*height: 13vh;*/
+    overflow: hidden;
+    background-color: #ffffff;
+  }
+  
+  .top__catchphrase {
+    font-size: 1.125rem;
+  }
+  
+  /*  スライドショー    */
+  #slideshow{
+    /*position: relative; */
+    width: 100%;
+    height: 97vh;
+    background-color: #ffffff;
+    /*overflow: hidden;*/
+  }
+
+  #slideshow img {
+    position: absolute;
+    top: 0;
+    left:0;
+    z-index: 8;
+    opacity: 0.0;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width:  100%;   /* 画像の横幅に合わせて記述 */
+    height: 100%;     /* 画像の高さに合わせて記述 */
+　}
+　
+  #slideshow img.active {
+    z-index: 10;
+    opacity: 1.0;
+  }
+
+  #slideshow img.last-active {
+    z-index: 9;
+  }
+
+  .top_image{
+    margin-top: 40px;
+    width: 100%;
+    height: 100%;
+    argin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:center;
+    color: #ffffff;
+    justify-content: center;
+  }
+  
+  /*  画像・文章フィールド  */
+  .metagri_field,
+  .product_field,
+  .challenge_field,
+  .buy_field{
+    display:flex;
+    /*padding: 10px;  */
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:center;
+    flex-direction: row;
+    color: #ffffff;
+    justify-content: center;
+  }
+
+  /*  画像・文章フィールド  */
+  .metagri_field2,
+  .product_field2,
+  .challenge_field2,
+  .buy_field2{
+    display:flex;
+    /*padding: 10px;  */
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:center;
+    flex-direction: row;
+    color: #ffffff;
+    justify-content: center;
+  }
+
+  /*  フィールドセル   */
+  .metagri_field_cell,
+  .product_field_cell,
+  .challenge_field_cell,
+  .buy_field_cell {
+      margin-top: 50px;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+  }
+
+
+  /*  文章フィールド   */
+  .metagri_concept_text,
+  .product_concept_text,
+  .challenge_concept_text,
+  .buy_concept_text{
+      color: #000000;
+      text-align:left;
+      margin: 60px;
+  }
+
+  /*  文章タイトル  */
+  .metagri_about_title,
+  .product_about_title,
+  .challenge_about_title,
+  .buy_about_title{
+    font-size: 24px;
+  }
+
+  /*  文章テキスト  */
+  .metagri_about_text,
+  .product_about_text,
+  .challenge_about_text,
+  .buy_about_text{
+    font-size: 16px;
+  }
+
+  #button1,
+  #button2,
+  #button3,
+  #button4{
+    border: solid 0px;
+    border-radius: 1px;
+    background-color: #dcdcdc;
+    padding: 20px 60px 20px 60px;
+  }
+
+  /* metagri.htmlファイル   */
+  /* producter.htmlファイル */
+  .top_menu{
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .metagri_file_title{
+    margin-left: 30px;
+    color: #000000;
+    font-size: 24px;
+  }
+
+  .buy_to_nft_flow img{
+    margin-top: 10px;
+    width: 600px;
+    height: 188px;
+  }
+
+
+  .showcase--leftpic .showcase__thumbnails {
+    text-align: left;
+  }
+  .showcase--rightpic .showcase__thumbnails {
+    text-align: right;
+  }
+
+  .showcase--rightpic .showcase__kind-name {
+    text-align: right;
+  }
+
+  .showcase__details {
+    max-width: 320px;
+  }
+  .showcase--leftpic .showcase__details {
+    margin: 0 auto 0 0;
+  }
+  .showcase--rightpic .showcase__details {
+    margin: 0 0 0 auto;
+  }
+
+  .footer_border{
+    margin-top: 20px;
+    border: solid;
+    border-color: #696969;
+  }
+  
+  .footer {
+    display:flex;
+    color: #000000;
+    padding: 50px 0;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    background-color: #ffffff;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    flex-direction: column;
+  }
+  
+  .footer_container{
+    display:flex;
+    justify-content: center;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
+    flex-direction: raw;
+    /*justify-content: space-between;  */
+    color: #000000;
+  }
+  
+  /*  製品(個別)    */
+  .footer_cell {
+    color: #000000;
+    padding: 0 10px;
+    text-decoration: none;
+    /*margin-left: auto; /* 中央寄せにするため */
+    /*margin-right: auto; /* 中央寄せにするため */
+    text-align: center;
+    /*margin-right: 10px;  */
+  }
+  
+  /* SNSロゴ      */
+  .footer_cell img{
+     width: 50px;
+     height: 50px;
+  }
+
+  /* ヘッダの各種リンク  */
+  .nav-item a,
+  .top_menu a {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+  }
+
+  .nav-item a::after,
+  .top_menu a::after{
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #333;
+    transform: scale(0, 1);
+    transform-origin: center top;
+    transition: transform .3s;
+  }
+
+  .nav-item a:hover::after,
+  .top_menu a:hover::after{
+    transform: scale(1, 1);
+  }
+
+  /* -------------------------------------------- */
+  /*  Footer関連                                  */
+  /* ---------------------------------------------*/
+  .footer_cell a {
+    color: #000;
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+  }
+
+  .footer_cell a::after {
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #333;
+    transform: scale(0, 1);
+    transform-origin: center top;
+    transition: transform .3s;
+  }
+
+  .footer_cell a:hover::after {
+    transform: scale(1, 1);
+  }
+  
+  .footer ul li {
+    color: #000000;
+    padding: 0 4px;
+    display: inline;
+    text-decoration: none;
+  }
+  
+  .footer ul li a:link {
+    color: #000000;
+  }
+  
+  .footer ul li a:visited {
+    color: #000000;
+  }
+  
+  .footer ul li a:hover {
+    opacity: 0.7;
+    text-decoration: none;
+  }
+
+  .footer_copy_right {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align: center;
+    color: #000;
+  }
+}
+
+.entry-contents{
+  margin-top: 30px;
+  margin-left: 150px;
+  margin-right: 150px;
+}
+
+.management-contents{
+  margin-top: 30px;
+  margin-left: 250px;
+  margin-right: 250px;
+}
+
+/* 印刷用スタイル */
+@media print {
+  .animated {
+    /* すべて表示 */
+    opacity: 1;
+  }
+}
+
+.box {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: #000000;
+}
+
+.text {
+  color: #000000;
+}
+
+h3 {
+  font-size: 21px;
+  margin: 0;
+  color: #000000;
+}
+
+.pict {
+  width: 30%;
+  margin-left: 3%;
+}
+
+.pict img {
+  width: 100%;
+  height:auto;
+}
+

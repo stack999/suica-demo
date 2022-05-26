@@ -1,0 +1,2029 @@
+@charset "UTF-8";
+
+/* =================================================================*/
+/*  共通                                                            */
+/* =================================================================*/
+body {
+  color: #ffffff;
+  background-color: #ffffff;
+  /*  "Droid Serif", YuGothic, "游ゴシック", sans-serif;  */
+  font-family: 'メイリオ', 'Meiryo', sans-serif;
+}
+
+.animated {
+  /* アニメーションで表示させるため最初は非表示 */
+  opacity: 0;
+}
+
+
+/*  TOPメニューコンテンツ  */
+.container-fluid {
+  width: 100%;
+  /*height: 10vh; */
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+/* TOP位置設定            */  
+.top {
+  /* 子要素でposition:absoluteを使うため必要 */
+  position: relative;
+}
+
+.top__privacy {
+  width: 100%;
+  /*height: 30vh; */
+  overflow: hidden;
+}
+
+/* Navi フォントサイズ(左)  */
+.navi-left-font-size {
+  font-size: 40px;
+  color: #000000;
+}
+
+/* Navi フォントサイズ(右)  */
+.navi-light-font-size ul li a:link {
+  font-size: 16px;
+  color: #000000;
+}
+
+/* Navi フォントサイズ(右)  リンク */
+.navi-light-font-size ul li a:link {
+  font-size: 16px;
+  color: #000000;
+}
+
+/* Navi フォントサイズ(右)  押下後 */
+.navi-light-font-size ul li a:visited {
+  font-size: 16px;
+  color: #000000;
+}
+
+/* Navi フォントサイズ(右)  マウスオーバー */
+.navi-light-font-size ul li a:hover {
+  opacity: 0.7;
+  text-decoration: none;
+}
+
+.top__bg {
+  filter: saturate(200%);
+}
+
+.top__bg {
+  /* .topと同じ左上位置に置く */
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  /* 背景画像を画面いっぱいに置く */
+  background-color: #383c3c;
+  background-image: none;
+  background-size: cover;
+  background-position: center;
+}
+
+.top__text-box {
+  /* 上下中央に置く */
+  position: relative;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  text-align: center;
+  width: 100%;
+
+  font-weight: 100;
+  color: #ffffff;
+  background-color: #383c3c;
+}
+
+.footer_border{
+  margin-top: 20px;
+  border: solid;
+  border-color: #696969;
+}
+
+.member {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #ffffff;
+    background-color: #ffffff;
+  }
+
+/*  自己紹介        */
+.image-myself {
+  /* 左右中央に置く */
+  margin: 0 auto;
+  text-align: center;
+
+  width: 90%;
+  max-width: 1024px;
+}
+
+/*  自己紹介        */
+.image-gallery__item {
+  /* 横に並ぶようにする */
+  display: inline-block;
+
+  /* width, heightがborderを含んだサイズになるようにする */
+  box-sizing: border-box;
+
+  width: 120px;
+  height: 120px;
+
+  /* 白い枠をつける */
+  border: 8px solid #fff;
+
+  /* 影をつける */
+  box-shadow: 4px 4px 6px 1px #ccc;
+
+  margin-left: 9px;
+  margin-right: 9px;
+  margin-bottom: 18px;
+  
+  background-color: #eeeeee;
+
+  /* 0.1秒かけて値を変化させるエフェクト */
+  -webkit-transition: -webkit-transform 0.1s;
+  transition: -webkit-transform 0.1s;
+  transition: transform 0.1s;
+  transition: transform 0.1s, -webkit-transform 0.1s;
+}
+
+/*  自己紹介(マウスタッチ時)       */
+.image-gallery__item:hover {
+  /* 1.1倍に拡大 */
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+/*  ボタン   */
+#button1,
+#button3,
+#button4{
+  border: solid 0px;
+  border-radius: 1px;
+  background-color: #dcdcdc;
+  padding: 20px 60px 20px 60px;
+}
+
+#button2{
+  width: 264px;
+  height: 64px;
+  border: solid 0px;
+  border-radius: 0px;
+  background-color: #dcdcdc;
+  padding: 0px 0px 0px 0px;
+}
+
+/* ヘッダの各種リンク  */
+.nav-item a,
+.top_menu a {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.nav-item a::after,
+.top_menu a::after{
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: #333;
+  transform: scale(0, 1);
+  transform-origin: center top;
+  transition: transform .3s;
+}
+
+.nav-item a:hover::after,
+.top_menu a:hover::after{
+  transform: scale(1, 1);
+}
+
+/* =================================================================*/
+/*  374以下の場合は適用される                              */
+/* =================================================================*/
+@media screen and ( max-width:374px){
+  .navbar-brand img{
+    width:150px;
+    height: 60px;
+  }
+  
+  .navbar-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+  
+  .top,
+  .top__bg {
+  /* 画面いっぱいに広げる */
+    width: 100%;
+    height: 10vh;
+    overflow: hidden;
+    background-color: #383c3c;
+  }
+
+  /*  画像・文章フィールド  */
+  .contents_field{
+    display:flex;
+    /*padding: 10px;  */
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:center;
+    flex-direction: column;
+    color: #000000;
+    justify-content: center;
+  }
+
+  .contents_field2{
+    display:flex;
+    /*padding: 10px;  */
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:center;
+    flex-direction: column-reverse;
+    color: #000000;
+    justify-content: center;
+  }
+
+  /*  フィールドセル   */
+  .contents_field_cell{
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+  }
+
+  .contents_field_cell img{
+      width: 300px;
+      height: 450px;
+      overflow: hidden;
+  }
+
+
+  /*  文章フィールド   */
+  .contents_concept_text{
+      color: #000000;
+      text-align:left;
+      margin: 20px;
+  }
+
+  /*  文章タイトル  */
+  .contents_about_title{
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  /*  文章テキスト  */
+  .contents_about_text{
+    font-size: 12px;
+  }
+
+  /* metagri.htmlファイル   */
+  /* producter.htmlファイル */
+  .top_menu{
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .metagri_file_title{
+    margin-left: 30px;
+    color: #000000;
+    font-size: 24px;
+  }
+
+  /*----------------------------------*/
+  /*  Metagri研究所ページ               */
+  /*----------------------------------*/
+  .top_image{
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:center;
+  }
+
+  .top_image img{
+    width: 400px;
+    height: 168px;
+  }
+  
+  /*  Metagriタイトル  */
+  .contents_metagri_title{
+    font-size: 24px;
+    width: 360px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:left;
+    color: #000000;
+  }
+
+  /*  Metagri文章field  */
+  .contents_metagri_text{
+    font-size: 14px;
+    width: 360px;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:left;
+    color: #000000;
+  }
+
+  /*  Metagri画像field  */
+  .contents_metagri_image{
+    width: 100%;
+    height: 100%;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:center;
+  }
+
+  /*  Metagri画像field  */
+  .contents_metagri_image img{
+    width: 360px;
+    height: 288px;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:center;
+  }
+
+  /* 農情人自己紹介写真サイズ  */
+  .self_introduction_nouzyouzin_picture_size{
+    width: 73px;
+    height: 73px;
+  }
+
+  /*  通常サイズ時は出力しない  */
+  .member__phrase_responsible{
+    font-size: 0px;
+  }
+
+  .member__phrase img{
+    width: 600px;
+    height:200px;
+  }
+
+    /*  自己紹介(picture)    */
+  .self_introduction_picture {
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+  }
+  
+  /*  自己紹介(経歴)    */
+  .self_introduction_career{
+    font-size: 14px;
+    text-align:left;
+
+    color: #ffffff;
+  }
+
+  /*----------------------------------*/
+  /*  購入ページ                       */
+  /*----------------------------------*/
+  .buy_top_image{
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:center;
+  }
+
+  .buy_top_image img{
+    width: 400px;
+    height: 125px;
+  }
+
+  .contents_button{
+    width: 400px;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:left;
+  }
+
+  .modal{
+      display: none;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      width: 100%;
+  }
+  .modal__bg{
+      background: rgba(0,0,0,0.8);
+      height: 100vh;
+      position: absolute;
+      width: 100%;
+  }
+  .modal__content{
+      background: #000000;
+      color:#000000;
+      left: 50%;
+      padding: 10px;
+      margin-left: auto;       /* 中央寄せにするため */
+      margin-right: auto;      /* 中央寄せにするため */
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%,-50%);
+      width: 80%;
+  }
+  
+  /* -------------------------------------------- */
+  /*  Footer関連                                  */
+  /* ---------------------------------------------*/
+  .footer {
+    color: #000000;
+    padding: 20px 0;
+    background-color: #FFFFFF;
+    text-align: center;
+    text-decoration: none;
+    flex-direction: column;
+    font-size: 14px;
+  }
+  
+  .footer_container{
+    display:flex;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
+    flex-direction: column;
+    /*justify-content: space-between;  */
+    color: #000000;
+  }
+  
+  /*  製品(個別)    */
+  .footer_cell {
+    width: 80%;
+    border-top: 1px solid white;
+    color: #000000;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    margin-bottom: 10px;
+    vertical-align: middle;
+    text-align: center;
+    text-decoration: none;
+  }
+  
+  /* SNSロゴ      */
+  .footer_cell img{
+     margin-top: 20px;
+     margin-bottom: 20px;
+     width: 50px;
+     height: 50px;
+  }
+  
+  .footer_cell a:link {
+    color: #000000;
+  }
+  
+  .footer_cell a:visited {
+    color: #000000;
+  }
+  
+  .footer_cell a:hover {
+    opacity: 0.7;
+    text-decoration: none;
+  }
+
+  .footer_cell a {
+    color: #000;
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+  }
+
+  .footer_cell a::after {
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #333;
+    transform: scale(0, 1);
+    transform-origin: center top;
+    transition: transform .3s;
+  }
+
+  .footer_cell a:hover::after {
+    transform: scale(1, 1);
+  }
+
+  .footer ul li {
+    color: #000000;
+    padding: 0 4px;
+    display: inline;
+    text-decoration: none;
+  }
+  
+  .footer ul li a:link {
+    color: #000000;
+  }
+  
+  .footer ul li a:visited {
+    color: #000000;
+  }
+  
+  .footer ul li a:hover {
+    opacity: 0.7;
+    text-decoration: none;
+  }
+
+  .footer_copy_right {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align: center;
+    color: #000;
+  }
+}
+
+/* =================================================================*/
+/*  375px以上640以下の場合は適用される                              */
+/* =================================================================*/
+@media screen and (min-width: 375px) and ( max-width:640px){
+  .navbar-brand img{
+    width:150px;
+    height: 60px;
+  }
+  
+  .navbar-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+  
+  .top,
+  .top__bg {
+  /* 画面いっぱいに広げる */
+    width: 100%;
+    height: 10vh;
+    overflow: hidden;
+    background-color: #383c3c;
+  }
+  
+  /*  画像・文章フィールド  */
+  .contents_field{
+    display:flex;
+    /*padding: 10px;  */
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:center;
+    flex-direction: column;
+    color: #000000;
+    justify-content: center;
+  }
+
+  .contents_field2{
+    display:flex;
+    /*padding: 10px;  */
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:center;
+    flex-direction: column-reverse;
+    color: #000000;
+    justify-content: center;
+  }
+
+  /*  フィールドセル   */
+  .contents_field_cell{
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+  }
+
+  .contents_field_cell img{
+      width: 400px;
+      height: 600px;
+      overflow: hidden;
+  }
+
+  /*  文章フィールド   */
+  .contents_concept_text{
+      color: #000000;
+      text-align:left;
+      margin: 20px;
+  }
+
+  /*  文章タイトル  */
+  .contents_about_title{
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  /*  文章テキスト  */
+  .contents_about_text{
+    font-size: 12px;
+  }
+
+  /* metagri.htmlファイル   */
+  /* producter.htmlファイル */
+  .top_menu{
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .metagri_file_title{
+    margin-left: 30px;
+    color: #000000;
+    font-size: 24px;
+  }
+
+  /*----------------------------------*/
+  /*  Metagri研究所ページ               */
+  /*----------------------------------*/
+  .top_image{
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:center;
+  }
+
+  .top_image img{
+    width: 400px;
+    height: 168px;
+  }
+  
+  /*  Metagriタイトル  */
+  .contents_metagri_title{
+    font-size: 20px;
+    width: 400px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:left;
+    color: #000000;
+  }
+
+  /*  Metagri文章field  */
+  .contents_metagri_text{
+    font-size: 14px;
+    width: 400px;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:left;
+    color: #000000;
+  }
+
+  /*  Metagri画像field  */
+  .contents_metagri_image{
+    width: 100%;
+    height: 100%;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:center;
+  }
+
+  .contents_metagri_image img{
+    width: 400px;
+    height: 320px;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:center;
+  }
+
+  /* 農情人自己紹介写真サイズ  */
+  .self_introduction_nouzyouzin_picture_size{
+    width: 73px;
+    height: 73px;
+  }
+
+  /*  通常サイズ時は出力しない  */
+  .member__phrase_responsible{
+    font-size: 0px;
+  }
+
+  .member__phrase img{
+    width: 600px;
+    height:200px;
+  }
+
+    /*  自己紹介(picture)    */
+  .self_introduction_picture {
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+  }
+  
+  /*  自己紹介(経歴)    */
+  .self_introduction_career{
+    font-size: 14px;
+    text-align:left;
+
+    color: #ffffff;
+  }
+
+  /*----------------------------------*/
+  /*  購入ページ                       */
+  /*----------------------------------*/
+  .buy_top_image{
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:center;
+  }
+
+  .buy_top_image img{
+    width: 400px;
+    height: 125px;
+  }
+
+  .contents_button{
+    width: 400px;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:left;
+  }
+  
+  .modal{
+      display: none;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      width: 100%;
+  }
+  .modal__bg{
+      background: rgba(0,0,0,0.8);
+      height: 100vh;
+      position: absolute;
+      width: 100%;
+  }
+  .modal__content{
+      background: #000000;
+      color:#000000;
+      left: 50%;
+      padding: 10px;
+      margin-left: auto;       /* 中央寄せにするため */
+      margin-right: auto;      /* 中央寄せにするため */
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%,-50%);
+      width: 80%;
+  }
+  
+  /* -------------------------------------------- */
+  /*  Footer関連                                  */
+  /* ---------------------------------------------*/
+  .footer {
+    color: #000000;
+    padding: 20px 0;
+    background-color: #FFFFFF;
+    text-align: center;
+    text-decoration: none;
+    flex-direction: column;
+  }
+  
+  .footer_container{
+    display:flex;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
+    flex-direction: column;
+    /*justify-content: space-between;  */
+    color: #000000;
+  }
+  
+  /*  製品(個別)    */
+  .footer_cell {
+    width: 80%;
+    border-top: 1px solid white;
+    color: #000000;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    margin-bottom: 10px;
+    vertical-align: middle;
+    text-align: center;
+    text-decoration: none;
+  }
+  
+  /* SNSロゴ      */
+  .footer_cell img{
+     margin-top: 20px;
+     margin-bottom: 20px;
+     width: 50px;
+     height: 50px;
+  }
+  
+  .footer_cell a:link {
+    color: #000000;
+  }
+  
+  .footer_cell a:visited {
+    color: #000000;
+  }
+  
+  .footer_cell a:hover {
+    opacity: 0.7;
+    text-decoration: none;
+  }
+
+  .footer_cell a {
+    color: #000;
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+  }
+
+  .footer_cell a::after {
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #333;
+    transform: scale(0, 1);
+    transform-origin: center top;
+    transition: transform .3s;
+  }
+
+  .footer_cell a:hover::after {
+    transform: scale(1, 1);
+  }
+
+  .footer ul li {
+    color: #000000;
+    padding: 0 4px;
+    display: inline;
+    text-decoration: none;
+  }
+  
+  .footer ul li a:link {
+    color: #000000;
+  }
+  
+  .footer ul li a:visited {
+    color: #000000;
+  }
+  
+  .footer ul li a:hover {
+    opacity: 0.7;
+    text-decoration: none;
+  }
+
+  .footer_copy_right {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align: center;
+    color: #000;
+  }
+}
+/* =================================================================*/
+/*  641px以上768以下の場合は適用される                              */
+/*  <iPad等>                                                        */
+/* =================================================================*/
+@media screen and (min-width: 641px) and ( max-width:768px){
+  .navbar-brand img{
+    width:240px;
+    height: 70px;
+  }
+  
+  .navbar-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+  
+  .top,
+  .top__bg {
+  /* 画面いっぱいに広げる */
+    width: 100%;
+    height: 10vh;
+    overflow: hidden;
+    background-color: #383c3c;
+  }
+  
+  .top__catchphrase {
+    font-size: 1.125rem;
+  }
+  
+  /*  タイトルテキスト表示制御  */
+  .slide_container_text{
+    /*text-align: left;    */
+    margin-top: 20px;
+    margin-left: 50px;
+    /*margin-right: 300px;  */
+    color: #ffffff;
+  }
+
+  /*  画像・文章フィールド  */
+  .contents_field{
+    display:flex;
+    padding: 60px;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:center;
+    flex-direction: column;
+    color: #000000;
+    justify-content: center;
+  }
+
+  .contents_field2{
+    display:flex;
+    /*padding: 10px;  */
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:center;
+    flex-direction: column-reverse;
+    color: #000000;
+    justify-content: center;
+  }
+
+  /*  フィールドセル   */
+  .contents_field_cell{
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+  }
+
+  /*  フィールドセル   */
+  .contents_field_cell img{
+      width: 600px;
+      height: 600px;
+      overflow: hidden;
+  }
+
+
+  /*  文章フィールド   */
+  .contents_concept_text{
+      color: #000000;
+      text-align:left;
+      margin: 20px;
+  }
+
+  /*  文章タイトル  */
+  .contents_about_title{
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  /*  文章テキスト  */
+  .contents_about_text{
+    font-size: 16px;
+  }
+
+  /* metagri.htmlファイル   */
+  /* producter.htmlファイル */
+  .top_menu{
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .metagri_file_title{
+    margin-left: 30px;
+    color: #000000;
+    font-size: 24px;
+  }
+
+  /*----------------------------------*/
+  /*  Metagri研究所ページ               */
+  /*----------------------------------*/
+  .top_image{
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:center;
+  }
+
+  .top_image img{
+    width: 640px;
+    height: 269px;
+  }
+  
+  /*  Metagriタイトル  */
+  .contents_metagri_title{
+    font-size: 24px;
+    width: 640px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:left;
+    color: #000000;
+  }
+
+  /*  Metagri文章field  */
+  .contents_metagri_text{
+    font-size: 16px;
+    width: 640px;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:left;
+    color: #000000;
+  }
+
+  /*  Metagri画像field  */
+  .contents_metagri_image{
+    width: 100%;
+    height: 100%;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:center;
+  }
+
+  /*  Metagri画像field  */
+  .contents_metagri_image img{
+    width: 640px;
+    height: 512px;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:center;
+  }
+
+  /* 農情人自己紹介写真サイズ  */
+  .self_introduction_nouzyouzin_picture_size{
+    width: 73px;
+    height: 73px;
+  }
+
+  /*  通常サイズ時は出力しない  */
+  .member__phrase_responsible{
+    font-size: 0px;
+  }
+
+  .member__phrase img{
+    width: 600px;
+    height:200px;
+  }
+
+    /*  自己紹介(picture)    */
+  .self_introduction_picture {
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+  }
+  
+  /*  自己紹介(経歴)    */
+  .self_introduction_career{
+    font-size: 14px;
+    text-align:left;
+
+    color: #ffffff;
+  }
+  
+  .modal{
+      display: none;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      width: 100%;
+  }
+  .modal__bg{
+      background: rgba(0,0,0,0.8);
+      height: 100vh;
+      position: absolute;
+      width: 100%;
+  }
+  .modal__content{
+      background: #000000;
+      color:#000000;
+      left: 50%;
+      padding: 10px;
+      margin-left: auto;       /* 中央寄せにするため */
+      margin-right: auto;      /* 中央寄せにするため */
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%,-50%);
+      width: 80%;
+  }
+
+  /*----------------------------------*/
+  /*  購入ページ                       */
+  /*----------------------------------*/
+  .buy_top_image{
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:center;
+  }
+
+  .buy_top_image img{
+    width: 640px;
+    height: 200px;
+  }
+
+  .contents_button{
+    width: 640px;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:left;
+  }
+
+  .showcase--leftpic .showcase__thumbnails {
+    text-align: left;
+  }
+  .showcase--rightpic .showcase__thumbnails {
+    text-align: right;
+  }
+
+  .showcase--rightpic .showcase__kind-name {
+    text-align: right;
+  }
+
+  .showcase__details {
+    max-width: 320px;
+  }
+  .showcase--leftpic .showcase__details {
+    margin: 0 auto 0 0;
+  }
+  .showcase--rightpic .showcase__details {
+    margin: 0 0 0 auto;
+  }
+  
+  /* -------------------------------------------- */
+  /*  Footer関連                                  */
+  /* ---------------------------------------------*/
+  .footer {
+    color: #000000;
+    padding: 20px 0;
+    background-color: #FFFFFF;
+    text-align: center;
+    text-decoration: none;
+    flex-direction: column;
+  }
+  
+  .footer_container{
+    display:flex;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
+    flex-direction: column;
+    /*justify-content: space-between;  */
+    color: #000000;
+  }
+  
+  /*  製品(個別)    */
+  .footer_cell {
+    width: 80%;
+    border-top: 1px solid white;
+    color: #000000;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    margin-bottom: 10px;
+    vertical-align: middle;
+    text-align: center;
+    text-decoration: none;
+  }
+  
+  /* SNSロゴ      */
+  .footer_cell img{
+     margin-top: 20px;
+     margin-bottom: 20px;
+     width: 50px;
+     height: 50px;
+  }
+  
+  .footer_cell a:link {
+    color: #000000;
+  }
+  
+  .footer_cell a:visited {
+    color: #000000;
+  }
+  
+  .footer_cell a:hover {
+    opacity: 0.7;
+    text-decoration: none;
+  }
+
+  .footer_cell a {
+    color: #000;
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+  }
+
+  .footer_cell a::after {
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #333;
+    transform: scale(0, 1);
+    transform-origin: center top;
+    transition: transform .3s;
+  }
+
+  .footer_cell a:hover::after {
+    transform: scale(1, 1);
+  }
+
+
+  .footer ul li {
+    color: #000000;
+    padding: 0 4px;
+    display: inline;
+    text-decoration: none;
+  }
+  
+  .footer ul li a:link {
+    color: #000000;
+  }
+  
+  .footer ul li a:visited {
+    color: #000000;
+  }
+  
+  .footer ul li a:hover {
+    opacity: 0.7;
+    text-decoration: none;
+  }
+
+  .footer_copy_right {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align: center;
+    color: #000;
+  }
+}
+
+/* =================================================================*/
+/*  769px以上1024px以下の場合は適用される                           */
+/*  <PCやipad横向き>                                                */
+/* =================================================================*/
+@media screen and (min-width: 769px) and (max-width: 1024px){
+  .navbar-brand img{
+    width:144px;
+    height: 42px;
+  }
+  
+  .navbar-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+  
+  .top,
+  .top__bg {
+  /* 画面いっぱいに広げる */
+    width: 100%;
+    /*height: 13vh; */
+    overflow: hidden;
+    background-color: #383c3c;
+  }
+  
+  .top__catchphrase {
+    font-size: 1.125rem;
+  }
+
+  /*  スライドショー    */
+  #slideshow {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    background-color: #383c3c;
+    overflow: hidden;
+  }
+
+  #slideshow img {
+    position: absolute;
+    top: 0;
+    left:0;
+    z-index: 8;
+    opacity: 0.0;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width:  1480px;   /* 画像の横幅に合わせて記述 */
+    height: 760px;   /* 画像の高さに合わせて記述 */
+　}
+　
+  #slideshow img.active {
+    z-index: 10;
+    opacity: 1.0;
+  }
+
+  #slideshow img.last-active {
+    z-index: 9;
+  }
+  
+  /*  タイトルテキスト表示制御  */
+  .slide_container_text{
+    /*text-align: left;    */
+    margin-top: 20px;
+    margin-left: 50px;
+    /*margin-right: 300px;  */
+    color: #ffffff;
+  }
+
+  /*  画像・文章フィールド  */
+  .contents_field{
+    display:flex;
+    /*padding: 10px;  */
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:center;
+    flex-direction: column;
+    color: #000000;
+    justify-content: center;
+  }
+
+  /*  画像・文章フィールド  */
+  .contents_field2{
+    display:flex;
+    /*padding: 10px;  */
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:center;
+    flex-direction: column-reverse;
+    color: #000000;
+    justify-content: center;
+  }
+
+  /*  フィールドセル   */
+  .contents_field_cell{
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+  }
+
+  .contents_field_cell img{
+      width: 600px;
+      height: 900px;
+      overflow: hidden;
+  }
+
+
+  /*  文章フィールド   */
+  .contents_concept_text{
+      color: #000000;
+      text-align:left;
+      margin: 65px;
+  }
+
+  /*  文章タイトル  */
+  .contents_about_title{
+    font-size: 24px;
+  }
+
+  /*  文章テキスト  */
+  .contents_about_text{
+    font-size: 16px;
+  }
+
+  /* metagri.htmlファイル   */
+  /* producter.htmlファイル */
+  .top_menu{
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .metagri_file_title{
+    margin-left: 30px;
+    color: #000000;
+    font-size: 24px;
+  }
+
+  /*----------------------------------*/
+  /*  Metagri研究所ページ               */
+  /*----------------------------------*/
+  .top_image{
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:center;
+  }
+
+  .top_image img{
+    width: 800px;
+    height: 336px;
+  }
+  
+  /*  Metagriタイトル  */
+  .contents_metagri_title{
+    font-size: 24px;
+    width: 800px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:left;
+    color: #000000;
+  }
+
+  /*  Metagri文章field  */
+  .contents_metagri_text{
+    font-size: 16px;
+    width: 800px;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:left;
+    color: #000000;
+  }
+
+  /*  Metagri画像field  */
+  .contents_metagri_image{
+    width: 100%;
+    height: 100%;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:center;
+  }
+
+  /* 農情人自己紹介写真サイズ  */
+  .self_introduction_nouzyouzin_picture_size{
+    width: 73px;
+    height: 73px;
+  }
+
+  /*  通常サイズ時は出力しない  */
+  .member__phrase_responsible{
+    font-size: 0px;
+  }
+
+  .member__phrase img{
+    width: 600px;
+    height:200px;
+  }
+
+    /*  自己紹介(picture)    */
+  .self_introduction_picture {
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+  }
+  
+  /*  自己紹介(経歴)    */
+  .self_introduction_career{
+    font-size: 14px;
+    text-align:left;
+
+    color: #ffffff;
+  }
+  
+  .modal{
+      display: none;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      width: 100%;
+  }
+  .modal__bg{
+      background: rgba(0,0,0,0.8);
+      height: 100vh;
+      position: absolute;
+      width: 100%;
+  }
+  .modal__content{
+      background: #000000;
+      color:#000000;
+      left: 50%;
+      padding: 10px;
+      margin-left: auto;       /* 中央寄せにするため */
+      margin-right: auto;      /* 中央寄せにするため */
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%,-50%);
+      width: 80%;
+  }
+
+  /*----------------------------------*/
+  /*  購入ページ                       */
+  /*----------------------------------*/
+  .buy_top_image{
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:center;
+  }
+
+  .buy_top_image img{
+    width: 900px;
+    height: 281px;
+  }
+
+  .contents_button{
+    width: 800px;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:left;
+  }
+
+  .showcase--leftpic .showcase__thumbnails {
+    text-align: left;
+  }
+  .showcase--rightpic .showcase__thumbnails {
+    text-align: right;
+  }
+
+  .showcase--rightpic .showcase__kind-name {
+    text-align: right;
+  }
+
+  .showcase__details {
+    max-width: 320px;
+  }
+  .showcase--leftpic .showcase__details {
+    margin: 0 auto 0 0;
+  }
+  .showcase--rightpic .showcase__details {
+    margin: 0 0 0 auto;
+  }
+  
+  /* -------------------------------------------- */
+  /*  Footer関連                                  */
+  /* ---------------------------------------------*/
+  .footer {
+    color: #000000;
+    padding: 20px 0;
+    background-color: #ffffff;
+    padding: 50px 0;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    flex-direction: column;
+  }
+  
+  .footer_container{
+    display:flex;
+    justify-content: center;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
+    flex-direction: raw;
+    /*justify-content: space-between;  */
+    color: #000000;
+  }
+  
+  /*  製品(個別)    */
+  .footer_cell {
+    color: #000000;
+    padding: 0 10px;
+    text-decoration: none;
+    /*margin-left: auto; /* 中央寄せにするため */
+    /*margin-right: auto; /* 中央寄せにするため */
+    text-align: center;
+    /*margin-right: 10px;  */
+  }
+    
+  /* SNSロゴ      */
+  .footer_cell img{
+     margin-top: 20px;
+     margin-bottom: 20px;
+     width: 50px;
+     height: 50px;
+  }
+  
+  .footer_cell a:link {
+    color: #000000;
+  }
+  
+  .footer_cell a:visited {
+    color: #000000;
+  }
+  
+  .footer_cell a:hover {
+    opacity: 0.7;
+    text-decoration: none;
+  }
+
+  .footer_cell a {
+    color: #000;
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+  }
+
+  .footer_cell a::after {
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #333;
+    transform: scale(0, 1);
+    transform-origin: center top;
+    transition: transform .3s;
+  }
+
+  .footer_cell a:hover::after {
+    transform: scale(1, 1);
+  }
+
+  .footer ul li {
+    color: #000000;
+    padding: 0 4px;
+    display: inline;
+    text-decoration: none;
+  }
+  
+  .footer ul li a:link {
+    color: #000000;
+  }
+  
+  .footer ul li a:visited {
+    color: #000000;
+  }
+  
+  .footer ul li a:hover {
+    opacity: 0.7;
+    text-decoration: none;
+  }
+
+  .footer_copy_right {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align: center;
+    color: #000;
+  }
+}
+
+/* =================================================================*/
+/*  1025px以上の場合は適用される                                    */
+/* =================================================================*/
+@media screen and (min-width: 1025px){
+  .navbar-brand img{
+    width:192px;
+    height: 56px;
+  }
+  
+  .navbar-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+  
+  .top,
+  .top__bg {
+  /* 画面いっぱいに広げる */
+    width: 100%;
+    height: 6vh;
+    overflow: hidden;
+    background-color: #ffffff;
+  }
+  
+  .top__catchphrase {
+    font-size: 1.125rem;
+  }
+  
+  /*  画像・文章フィールド  */
+  .contents_field{
+    display:flex;
+    padding: 10px;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:center;
+    flex-direction: row;
+    color: #000000;
+    justify-content: center;
+  }
+
+  /*  画像・文章フィールド  */
+  .contents_field2{
+    display:flex;
+    /*padding: 10px;  */
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:center;
+    flex-direction: row;
+    color: #000000;
+    justify-content: center;
+  }
+
+  /*  フィールドセル   */
+  .contents_field_cell{
+      width: 700px;
+      height: 1050px;
+      overflow: hidden;
+  }
+
+
+  /*  文章フィールド   */
+  .contents_concept_text{
+      color: #000000;
+      text-align:left;
+      margin: 60px;
+  }
+
+  /*  文章タイトル  */
+  .contents_about_title{
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #000000;
+  }
+
+  /*  文章テキスト  */
+  .contents_about_text{
+    font-size: 16px;
+  }
+
+  /* metagri.htmlファイル   */
+  /* producter.htmlファイル */
+  .top_menu{
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  /*----------------------------------*/
+  /*  Metagri研究所ページ               */
+  /*----------------------------------*/
+  .top_image{
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:center;
+  }
+
+  .top_image img{
+    width: 800px;
+    height: 336px;
+  }
+
+  /*  Metagriタイトル  */
+  .contents_metagri_title{
+    font-size: 24px;
+    width: 800px;
+    color: #000000;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:left;
+    color: #000000;
+  }
+
+  /*  Metagri文章field  */
+  .contents_metagri_text{
+    font-size: 16px;
+    width: 800px;
+    color: #000000;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:left;
+    color: #000000;
+  }
+
+  /*  Metagri画像field  */
+  .contents_metagri_image{
+    width: 100%;
+    height: 100%;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:center;
+  }
+
+  /* 農情人自己紹介写真サイズ  */
+  .self_introduction_nouzyouzin_picture_size{
+    width: 73px;
+    height: 73px;
+  }
+
+  /*  通常サイズ時は出力しない  */
+  .member__phrase_responsible{
+    font-size: 0px;
+  }
+
+  .member__phrase img{
+    width: 600px;
+    height:200px;
+  }
+
+    /*  自己紹介(picture)    */
+  .self_introduction_picture {
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+  }
+  
+  /*  自己紹介(経歴)    */
+  .self_introduction_career{
+    font-size: 14px;
+    text-align:left;
+
+    color: #ffffff;
+  }
+  
+  .modal{
+      display: none;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      width: 100%;
+  }
+  .modal__bg{
+      background: rgba(0,0,0,0.8);
+      height: 100vh;
+      position: absolute;
+      width: 100%;
+  }
+  .modal__content{
+      background: #000000;
+      color:#000000;
+      left: 50%;
+      padding: 10px;
+      margin-left: auto;       /* 中央寄せにするため */
+      margin-right: auto;      /* 中央寄せにするため */
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%,-50%);
+      width: 80%;
+  }
+
+  .showcase--leftpic .showcase__thumbnails {
+    text-align: left;
+  }
+  .showcase--rightpic .showcase__thumbnails {
+    text-align: right;
+  }
+
+  .showcase--rightpic .showcase__kind-name {
+    text-align: right;
+  }
+
+  .showcase__details {
+    max-width: 320px;
+  }
+  .showcase--leftpic .showcase__details {
+    margin: 0 auto 0 0;
+  }
+  .showcase--rightpic .showcase__details {
+    margin: 0 0 0 auto;
+  }
+
+  .footer_border{
+    margin-top: 20px;
+    border: solid;
+    border-color: #696969;
+  }
+
+  /*----------------------------------*/
+  /*  購入ページ                       */
+  /*----------------------------------*/
+  .buy_top_image{
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:center;
+  }
+
+  .buy_top_image img{
+    width: 900px;
+    height: 281px;
+  }
+
+  .contents_button{
+    width: 800px;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align:left;
+  }
+
+  /* -------------------------------------------- */
+  /*  Footer関連                                  */
+  /* ---------------------------------------------*/
+  .footer {
+    color: #000000;
+    padding: 20px 0;
+    background-color: #ffffff;
+    padding: 50px 0;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    flex-direction: column;
+  }
+  
+  .footer_container{
+    display:flex;
+    justify-content: center;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
+    flex-direction: raw;
+    /*justify-content: space-between;  */
+    color: #000000;
+  }
+  
+  /*  製品(個別)    */
+  .footer_cell {
+    color: #000000;
+    padding: 0 10px;
+    text-decoration: none;
+    /*margin-left: auto; /* 中央寄せにするため */
+    /*margin-right: auto; /* 中央寄せにするため */
+    text-align: center;
+    /*margin-right: 10px;  */
+  }
+  
+  /* SNSロゴ      */
+  .footer_cell img{
+     margin-top: 20px;
+     margin-bottom: 20px;
+     width: 50px;
+     height: 50px;
+  }
+  
+  .footer_cell a:link {
+    color: #000000;
+  }
+  
+  .footer_cell a:visited {
+    color: #000000;
+  }
+  
+  .footer_cell a:hover {
+    opacity: 0.7;
+    text-decoration: none;
+  }
+
+  .footer_cell a {
+    color: #000;
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+  }
+
+  .footer_cell a::after {
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #333;
+    transform: scale(0, 1);
+    transform-origin: center top;
+    transition: transform .3s;
+  }
+
+  .footer_cell a:hover::after {
+    transform: scale(1, 1);
+  }
+
+  .footer ul li {
+    color: #000000;
+    padding: 0 4px;
+    display: inline;
+    text-decoration: none;
+  }
+  
+  .footer ul li a:link {
+    color: #000000;
+  }
+  
+  .footer ul li a:visited {
+    color: #000000;
+  }
+  
+  .footer ul li a:hover {
+    opacity: 0.7;
+    text-decoration: none;
+  }
+
+  .footer_copy_right {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: auto; /* 中央寄せにするため */
+    margin-right: auto; /* 中央寄せにするため */
+    text-align: center;
+    color: #000;
+  }
+}
+
+.entry-contents{
+  margin-top: 30px;
+  margin-left: 150px;
+  margin-right: 150px;
+}
+
+.management-contents{
+  margin-top: 30px;
+  margin-left: 250px;
+  margin-right: 250px;
+}
+
+/* 印刷用スタイル */
+@media print {
+  .animated {
+    /* すべて表示 */
+    opacity: 1;
+  }
+}
+
+.box {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: #000000;
+}
+
+.text {
+  color: #000000;
+}
+
+h3 {
+  font-size: 21px;
+  margin: 0;
+  color: #000000;
+}
+
+.pict {
+  width: 30%;
+  margin-left: 3%;
+}
+
+.pict img {
+  width: 100%;
+  height:auto;
+}
+
